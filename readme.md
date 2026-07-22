@@ -17,7 +17,7 @@ The *WeeWX-Saratoga extension* consists of a number of [*WeeWX* services](https:
 
 The above files are produced during each *WeeWX* report cycle with the exception of *clientraw.txt* which is generated upon receipt of loop packets and (by default) updated at 10 second intervals.
 
-The *WeeWX-Saratoga extension* is based on the original [*weewx-WD extension*](https://bitbucket.org/ozgreg/weewx-wd) and the later forked [*WeeWX-WD extension*](https://github.com/gjr80/weewx-weewx-wd).
+The *WeeWX-Saratoga extension* is based on the original [*weewx-WD extension*](https://bitbucket.org/ozgreg/weewx-wd) and the later forked *WeeWX-WD extension*.
 
 
 ## Pre-Requisites ##
@@ -36,8 +36,6 @@ The *WeeWX-Saratoga extension* requires:
 ## Installation and Upgrade Instructions ##
 
 The preferred method of installing or upgrading the *WeeWX-Saratoga extension* is through use of the applicable *WeeWX* extension utility. The *WeeWX-Saratoga extension* can also be installed manually.
-
-**Note**: If installing the *WeeWX-Saratoga extension* in place of *WeeWX-WD* please refer to the [Migrating from *WeeWX-WD*](https://github.com/gjr80/weewx-saratoga/wiki/Migrating-from-WeeWX‐WD) wiki page.
 
 
 ### Installing or upgrading using the *WeeWX* extension utility ###
@@ -90,8 +88,6 @@ The preferred method of installing or upgrading the *WeeWX-Saratoga extension* i
         sudo systemctl restart weewx
 
 1.  This will result in the WeeWX-Saratoga data files being generated as outlined above. The generated files should be located in the *public_html/saratoga* directory.
-
-1. The *WeeWX-Saratoga extension* installation can be further customized (eg remote file transfer, units of measure etc) by referring to the [WeeWX-Saratoga wiki](https://github.com/gjr80/weewx-saratoga/wiki).
 
 
 ### Installing or upgrading manually ###
@@ -264,13 +260,11 @@ The preferred method of installing or upgrading the *WeeWX-Saratoga extension* i
 
 1.  This will result in the WeeWX-Saratoga data files being generated as outlined above. The generated files should be located in the *public_html/saratoga* directory.
 
-1. The *WeeWX-Saratoga extension* installation can be further customized (eg remote file transfer, units of measure etc) by referring to the [WeeWX-Saratoga wiki](https://github.com/gjr80/weewx-saratoga/wiki).
-
 
 ## Support ##
 
-General support issues for the *WeeWX-Saratoga extension* may be raised in the Google Groups [weewx-user forum](https://groups.google.com/g/weewx-user "Google Groups weewx-user forum"). The *WeeWX-Saratoga extension* [Issues Page](https://github.com/gjr80/weewx-saratoga/issues "WeeWX-Saratoga extension Issues") should only be used for specific bugs in the *WeeWX-Saratoga extension* code. It is recommended that even if a *WeeWX-Saratoga extension* bug is suspected users first post to the Google Groups [weewx-user forum](https://groups.google.com/g/weewx-user "Google Groups weewx-user forum"). Support for the [_WEEWX-plugin_](https://saratoga-weather.org/wxtemplates/install.php) for the *Saratoga Weather Website templates* should be via posts on [WXForum.net, Custom Templates/Scripts board](https://www.wxforum.net/index.php?board=102.0).
+General support issues for the *WeeWX-Saratoga extension* may be raised in the Google Groups [weewx-user forum](https://groups.google.com/g/weewx-user "Google Groups weewx-user forum"). The *WeeWX-Saratoga extension* [Issues Page](https://github.com/ktrue/weewx-saratoga/issues "WeeWX-Saratoga extension Issues") should only be used for specific bugs in the *WeeWX-Saratoga extension* code. It is recommended that even if a *WeeWX-Saratoga extension* bug is suspected users first post to the Google Groups [weewx-user forum](https://groups.google.com/g/weewx-user "Google Groups weewx-user forum"). Support for the [_WEEWX-plugin_](https://saratoga-weather.org/wxtemplates/install.php) for the *Saratoga Weather Website templates* should be via posts on [WXForum.net, Custom Templates/Scripts board](https://www.wxforum.net/index.php?board=102.0).
 
 ## Licensing ##
 
-The *WeeWX-Saratoga extension* is licensed under the [GNU Public License v3](https://github.com/gjr80/weewx-saratoga/blob/master/LICENSE "*WeeWX-Saratoga extension* License").
+The *WeeWX-Saratoga extension* is licensed under the [GNU Public License v3](https://github.com/ktrue/weewx-saratoga/blob/master/LICENSE "*WeeWX-Saratoga extension* License").
