@@ -42,7 +42,7 @@ The preferred method of installing or upgrading the *WeeWX-Saratoga extension* i
 
 1.  Download the *WeeWX-Saratoga extension* from the *WeeWX-Saratoga extension* [releases page](https://github.com/ktrue/weewx-saratoga/releases) into a directory accessible from the *WeeWX* machine:
 
-        wget -P /var/tmp https://github.com/ktrue/weewx-saratoga/releases/download/v0.1.10/ws-0.1.10.tar.gz
+        wget -P /var/tmp https://github.com/ktrue/weewx-saratoga/releases/download/v0.1.11/ws-0.1.11.tar.gz
 
 	in this case the extension will be downloaded to the directory */var/tmp*.
 
@@ -50,13 +50,13 @@ The preferred method of installing or upgrading the *WeeWX-Saratoga extension* i
 
 - for *WeeWX* v5:
 
-      weectl extension install /var/tmp/ws-0.1.10.tar.gz
+      weectl extension install /var/tmp/ws-0.1.11.tar.gz
 
     **Note:** Depending on your *WeeWX* installation the path to *weectl* may need to be provided.
 
 - for *WeeWX* v4:
 
-      wee_extension --install /var/tmp/ws-0.1.10.tar.gz
+      wee_extension --install /var/tmp/ws-0.1.11.tar.gz
 
     **Note:** Depending on your system/installation the above command may need to be prefixed with *sudo*.
 
@@ -94,13 +94,13 @@ The preferred method of installing or upgrading the *WeeWX-Saratoga extension* i
 
 1.  Download the *WeeWX-Saratoga extension* from the *WeeWX-Saratoga extension* [releases page](https://github.com/ktrue/weewx-saratoga/releases) into a directory accessible from the *WeeWX* machine.
 
-        wget -P /var/tmp https://github.com/ktrue/weewx-saratoga/releases/download/v0.1.10/ws-0.1.10.tar.gz
+        wget -P /var/tmp https://github.com/ktrue/weewx-saratoga/releases/download/v0.1.11/ws-0.1.11.tar.gz
 
 	in this case the extension will be downloaded to the directory */var/tmp*.
 
 1.  Unpack the extension as follows:
 
-        tar xvfz /var/tmp/ws-0.1.10.tar.gz
+        tar xvfz /var/tmp/ws-0.1.11.tar.gz
 
 1.  Copy files from within the resulting *ws* directory as follows:
 
