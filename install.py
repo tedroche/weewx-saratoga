@@ -13,9 +13,14 @@ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
 details.
 
-Version: 0.1.10                                          Date: 1 July 2024
+Version: 0.1.11                                          Date: 22 July 2026
 
 Revision History
+    26 July 2026        v0.1.11
+        - fixed two bugs in rtcr.py:
+          Bug #1: Gust fields always matched current wind speed
+          Bug #2: Field 2 was computed as a gust value, not current windspeed
+          Fixes contributed by John Bonzey (Thanks!)          
     1 July 2024         v0.1.10
         - version number change only
     29 February 2024    v0.1.9
@@ -56,7 +61,7 @@ import weewx
 from setup import ExtensionInstaller
 
 REQUIRED_WEEWX_VERSION = "4.5.0"
-WS_VERSION = "0.1.10"
+WS_VERSION = "0.1.11"
 
 # Multi-line config string, makes it easier to include comments. Needs to be
 # explicitly set as unicode or python2 StringIO complains.
@@ -204,8 +209,8 @@ class WSInstaller(ExtensionInstaller):
             version=WS_VERSION,
             name='WeeWX-Saratoga',
             description='WeeWX support for the Saratoga Weather Website Templates.',
-            author="Gary Roderick",
-            author_email="gjroderick<@>gmail.com",
+            author="Gary Roderick, Ken True",
+            author_email="webmaster<@>saratoga-weather.org",
             process_services=['user.ws.WsWXCalculate'],
             xtype_services=['user.wsxtypes.StdWSXTypes'],
             archive_services=['user.ws.WsArchive'],
