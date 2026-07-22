@@ -1,3 +1,6 @@
+v0.1.11
+-   fixes for rctr.py for wind/gust speeds courtsey of John Bonsey
+    updates to install.py, readme.md to remove now missing links to gjc80 distributions
 v0.1.10
 -   added support for the [Extras] feelslike option to allow the source for the
     WEEWXtags.php feelslike tag to be selected
