@@ -17,9 +17,14 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 this program.  If not, see https://www.gnu.org/licenses/.
 
-Version: 0.3.7                                          Date: 31 August 2023
+Version: 0.3.8                                          Date: 22 July 2026
 
 Revision History
+    22 July 2026        v0.3.8
+        - fixed two bugs:
+          Bug #1: Gust fields always matched current wind speed
+          Bug #2: Field 2 was computed as a gust value, not current windspeed
+          Fixes contributed by John Bonzey (Thanks!)          
     31 August 2023      v0.3.7
         - fix bug where a non-existent destination directory would prevent
           local saving of clientraw.txt
@@ -273,7 +278,7 @@ except ImportError:
 
 
 # version number of this script
-RTCR_VERSION = '0.3.7'
+RTCR_VERSION = '0.3.8'
 
 # the obs that we will buffer
 MANIFEST = ['outTemp', 'barometer', 'outHumidity', 'rain', 'rainRate',
@@ -1329,13 +1334,9 @@ class RealtimeClientrawThread(threading.Thread):
         else:
             av_speed = None
         data[1] = av_speed if av_speed is not None else 0.0
-        # 002 - gust (knots)
+        # 002 - current windspeed, per official clientraw.txt spec (knots)
         if 'windSpeed' in self.buffer:
-            if self.gust_period > 0:
-                _gust = self.buffer['windSpeed'].history_max(packet_wx['dateTime'],
-                                                             age=self.gust_period).value
-            else:
-                _gust = self.buffer['windSpeed'].last
+            _gust = self.buffer['windSpeed'].last
             gust_vt = ValueTuple(_gust, speed_unit, speed_group)
             try:
                 gust = convert(gust_vt, 'knot').value
@@ -1547,7 +1548,7 @@ class RealtimeClientrawThread(threading.Thread):
         # 043 - WMR968/200 battery 7 - will not implement
         data[43] = 100
         # 044 - windchill (Celsius)
-        data[44] = packet_wx['windchill'] if packet_wx['windchill'] is not None else 0.0
+        data[44] = packet_wx['windchill'] if packet_wx['windchill'] is not None else (packet_wx['outTemp'] if packet_wx.get('outTemp') is not None else 0.0)
         # 045 - humidex (Celsius)
         if 'humidex' in packet_wx:
             humidex = packet_wx['humidex']
@@ -2005,8 +2006,13 @@ class RealtimeClientrawThread(threading.Thread):
         else:
             t_windchill_tm = time.localtime(packet_wx['dateTime'])
         data[166] = time.strftime(self.short_time_fmt, t_windchill_tm)
-        # 167 - Current Cost Channel 1 - will not implement
-        data[167] = 0.0
+        # 167 - repurposed: raw instantaneous wind speed from the current loop packet (no averaging/gust window)
+        try:
+            raw_speed_vt = ValueTuple(packet_wx.get('windSpeed'), 'meter_per_second', 'group_speed')
+            raw_speed = convert(raw_speed_vt, 'knot').value
+        except (KeyError, TypeError):
+            raw_speed = None
+        data[167] = raw_speed if raw_speed is not None else 0.0
         # 168 - Current Cost Channel 2 - will not implement
         data[168] = 0.0
         # 169 - Current Cost Channel 3 - will not implement
@@ -2404,7 +2410,7 @@ class ScalarBuffer(object):
         born = ts - age
         snapshot = [a for a in self.history if a.ts >= born]
         if len(snapshot) > 0:
-            _max = max(snapshot, key=itemgetter(1))
+            _max = max(snapshot, key=itemgetter(0))
             return ObsTuple(_max[0], _max[1])
         else:
             return ObsTuple(None, None)
