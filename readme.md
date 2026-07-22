@@ -267,4 +267,4 @@ General support issues for the *WeeWX-Saratoga extension* may be raised in the G
 
 ## Licensing ##
 
-The *WeeWX-Saratoga extension* is licensed under the [GNU Public License v3](https://github.com/ktrue/weewx-saratoga/blob/master/LICENSE "*WeeWX-Saratoga extension* License").
+The *WeeWX-Saratoga extension* is licensed under the [GNU Public License v3](https://github.com/ktrue/weewx-saratoga/blob/main/LICENSE "*WeeWX-Saratoga extension* License").
