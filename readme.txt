@@ -5,7 +5,6 @@ gjr80 user/distributions have been removed from GitHub on 1-Jun-2025. I
 do hope that Gary is ok. There has been no explanation on why the 
 original GitHub distributions/userid was removed. 
 
-
 The WeeWX-Saratoga extension is a WeeWX extension that supports the Saratoga 
 Weather Website Templates (https://saratoga-weather.org/wxtemplates/index.php) 
 using the WEEWX-plugin. The extension also supports the Saratoga Weather 
@@ -35,8 +34,7 @@ of clientraw.txt which is generated upon receipt of loop packets and (by
 default) updated at 10 second intervals.
 
 The WeeWX-Saratoga extension is based on the original weewx-WD extension 
-(https://bitbucket.org/ozgreg/weewx-wd) and the later forked WeeWX-WD extension 
-(https://github.com/gjr80/weewx-weewx-wd).
+(https://bitbucket.org/ozgreg/weewx-wd) and the later forked WeeWX-WD extension.
 
 
 Pre-Requisites
@@ -64,18 +62,13 @@ The preferred method of installing or upgrading the WeeWX-Saratoga extension is
 through use of the applicable WeeWX extension utility. The WeeWX-Saratoga 
 extension can also be installed manually.
 
-Note: If installing the WeeWX-Saratoga extension in place of WeeWX-WD please 
-refer to the Migrating from WeeWX-WD 
-(https://github.com/gjr80/weewx-saratoga/wiki/Migrating-from-WeeWX‐WD) wiki page.
-
-
 Installing or upgrading using the WeeWX extension utility
 
 1.  Download the WeeWX-Saratoga extension from the WeeWX-Saratoga extension 
 releases page (https://github.com/ktrue/weewx-saratoga/releases) into a 
 directory accessible from the WeeWX machine:
 
-    wget -P /var/tmp https://github.com/ktrue/weewx-saratoga/releases/download/v0.1.10/ws-0.1.10.tar.gz
+    wget -P /var/tmp https://github.com/ktrue/weewx-saratoga/releases/download/v0.1.11/ws-0.1.11.tar.gz
 
 	in this case the extension will be downloaded to the directory /var/tmp.
 
@@ -84,14 +77,14 @@ applicable WeeWX extension utility:
 
     - for WeeWX v5:
 
-        weectl extension install /var/tmp/ws-0.1.10.tar.gz
+        weectl extension install /var/tmp/ws-0.1.11.tar.gz
 
         Note: Depending on your WeeWX installation the path to weectl may need 
         to be provided.
 
     - for WeeWX v4:
 
-        wee_extension --install /var/tmp/ws-0.1.10.tar.gz
+        wee_extension --install /var/tmp/ws-0.1.11.tar.gz
 
         Note: Depending on your system/installation the above command may need 
         to be prefixed with sudo.
@@ -132,24 +125,19 @@ applicable WeeWX extension utility:
 outlined above. The generated files should be located in the 
 public_html/saratoga directory.
 
-5. The WeeWX-Saratoga extension installation can be further customized 
-(eg remote file transfer, units of measure etc) by referring to the 
-WeeWX-Saratoga wiki (https://github.com/gjr80/weewx-saratoga/wiki).
-
-
 Installing or upgrading manually
 
 1.  Download the WeeWX-Saratoga extension from the WeeWX-Saratoga extension
 releases page (https://github.com/ktrue/weewx-saratoga/releases) into a
 directory accessible from the WeeWX machine.
 
-    wget -P /var/tmp https://github.com/ktrue/weewx-saratoga/releases/download/v0.1.10/ws-0.1.10.tar.gz
+    wget -P /var/tmp https://github.com/ktrue/weewx-saratoga/releases/download/v0.1.11/ws-0.1.11.tar.gz
 
 	in this case the extension will be downloaded to the directory /var/tmp.
 
 2.  Unpack the extension as follows:
 
-    tar xvfz /var/tmp/ws-0.1.10.tar.gz
+    tar xvfz /var/tmp/ws-0.1.11.tar.gz
 
 3.  Copy files from within the resulting ws directory as follows:
 
@@ -324,11 +312,6 @@ sub-sections:
 outlined above. The generated files should be located in the
 public_html/saratoga directory.
 
-12. The WeeWX-Saratoga extension installation can be further customized
-(eg remote file transfer, units of measure etc) by referring to the
-WeeWX-Saratoga wiki (https://github.com/gjr80/weewx-saratoga/wiki).
-
-
 Support
 
 General support issues for the WeeWX-Saratoga extension may be raised in the
@@ -346,4 +329,4 @@ Templates/Scripts board (https://www.wxforum.net/index.php?board=102.0).
 Licensing
 
 The WeeWX-Saratoga extension is licensed under the GNU Public License v3
-(https://github.com/ktrue/weewx-saratoga/blob/master/LICENSE).
+(https://github.com/ktrue/weewx-saratoga/blob/main/LICENSE).
